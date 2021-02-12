@@ -8,12 +8,20 @@ namespace R_P_S_L_S
 {
     class Human : PLayer
     {
-        // member variables
+
+        public int PickAGesture()
+        {
+
+            Console.WriteLine("Choose a gesture");
+
+            string userInput = Console.ReadLine();
+            int gestures = int.Parse(userInput);
+
+            return gestures;
 
 
-        // constructor
+        }
 
-        // member methods
     }
     
 

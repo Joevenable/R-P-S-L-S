@@ -8,5 +8,12 @@ namespace R_P_S_L_S
 {
    class Ai :PLayer
     {
+        Random random;
+
+        public int RandomGesture(int gestureIndex)
+        {
+           
+            return random.Next(gestureIndex);
+        }
     }
 }

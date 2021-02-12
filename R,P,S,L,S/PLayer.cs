@@ -8,13 +8,11 @@ namespace R_P_S_L_S
 {
     abstract class PLayer
     {
-        // member variables
+        
         public List<Gestures> gestures;
         public string name;
 
 
-
-        // constructor
 
         public PLayer()
         {
@@ -34,6 +32,6 @@ namespace R_P_S_L_S
             gestures.Add(spock);
         }
 
-        // member methods
+        public string PlayerName()
     }
 }
