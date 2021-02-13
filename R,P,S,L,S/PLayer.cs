@@ -8,16 +8,17 @@ namespace R_P_S_L_S
 {
     abstract class PLayer
     {
-        
+
         public List<Gestures> gestures;
         public string name;
+        public string gesturesChoice;
 
 
 
         public PLayer()
         {
-            
-            Gestures rock = new Gestures ("rock");
+
+            Gestures rock = new Gestures("rock");
             Gestures paper = new Gestures("paper");
             Gestures scissors = new Gestures("scossors");
             Gestures lizard = new Gestures("lizard");
@@ -32,6 +33,9 @@ namespace R_P_S_L_S
             gestures.Add(spock);
         }
 
-        public string PlayerName()
+        public abstract void PlayerName();
+
+        public abstract void PickAGesture();
+
     }
 }

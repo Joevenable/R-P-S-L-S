@@ -10,10 +10,24 @@ namespace R_P_S_L_S
     {
         Random random;
 
-        public int RandomGesture(int gestureIndex)
+        public Ai()
         {
-           
-            return random.Next(gestureIndex);
+            random = new Random();
+
         }
+
+        public override void PickAGesture()
+        {
+            int aiGesture = random.Next(gestures.Count);
+
+            gesturesChoice = gestures[aiGesture].name;
+        }
+
+        public override void PlayerName()
+        {
+            name = "Rosc MKIV";
+        }
+
+       
     }
 }
