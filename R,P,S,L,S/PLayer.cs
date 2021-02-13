@@ -12,11 +12,12 @@ namespace R_P_S_L_S
         public List<Gestures> gestures;
         public string name;
         public string gesturesChoice;
-
+        public int playerScore;
 
 
         public PLayer()
         {
+            playerScore = 0;
 
             Gestures rock = new Gestures("rock");
             Gestures paper = new Gestures("paper");
