@@ -61,7 +61,7 @@ namespace R_P_S_L_S
 
         public void WhoWon(string pLayer1, string pLayer2)
         {
-            
+
             if (pLayer1 is "rock")
             {
                 if (pLayer2 is "rock")
@@ -71,19 +71,151 @@ namespace R_P_S_L_S
                 else if (pLayer2 is "paper")
                 {
                     this.pLayer2.playerScore++;
-                    Console.WriteLine($"paper covers rock,{this.pLayer2.name} wins");             
+                    Console.WriteLine($"paper covers rock,{this.pLayer2.name} wins");
+                }
+                else if (pLayer2 is "scissors")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine($"rock crushes scissors,{this.pLayer1.name} wins");
+                }
+                else if (pLayer2 is "lizard")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine($"rock crushes lizard,{this.pLayer1.name} wins");
+                }
+                else if (pLayer2 is "spock")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine($"spock vaporizes rock,{this.pLayer2.name} wins");
                 }
 
             }
+            if (pLayer1 is "paper")
+            {
+                if (pLayer2 is "rock")
+                {
+                    Console.WriteLine($"paper covers rock,{this.pLayer1.name} wins");
+                }
+                else if (pLayer2 is "paper")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine($"Its a tie");
+                }
+                else if (pLayer2 is "scissors")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine($"scissors cut paper,{this.pLayer2.name} wins");
+                }
+                else if (pLayer2 is "lizard")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine($"lizard eats paper,{this.pLayer2.name} wins");
+                }
+                else if (pLayer2 is "spock")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine($"paper disproves spock,{this.pLayer1.name} wins");
+                }
+
+            }
+            if (pLayer1 is "scissors")
+            {
+                if (pLayer2 is "rock")
+                {
+                    Console.WriteLine($"rock crushes scissors,{this.pLayer2.name} wins");
+                }
+                else if (pLayer2 is "paper")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine($"scissors cut paper,{this.pLayer1.name} wins");
+                }
+                else if (pLayer2 is "scissors")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine("its a tie");
+                }
+                else if (pLayer2 is "lizard")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine($"scissors decapitates lizard,{this.pLayer1.name} wins");
+                }
+                else if (pLayer2 is "spock")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine($"spock smashes scissors,{this.pLayer2.name} wins");
+                }
+
+            }
+            if (pLayer1 is "lizard")
+            {
+                if (pLayer2 is "rock")
+                {
+                    Console.WriteLine($"rock crushes lizard,{this.pLayer2.name} wins");
+                }
+                else if (pLayer2 is "paper")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine($"Lizard eats paper,{this.pLayer1.name} wins");
+                }
+                else if (pLayer2 is "scissors")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine($"scissors decapitates lizard,{this.pLayer2.name} wins");
+                }
+                else if (pLayer2 is "lizard")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine("its a tie");
+                }
+                else if (pLayer2 is "spock")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine($"lizard poisions spock,{this.pLayer2.name} wins");
+                }
+
+            }
+            if (pLayer1 is "spock")
+            {
+                if (pLayer2 is "rock")
+                {
+                    Console.WriteLine($"spock vaporizes rock,{this.pLayer1.name} wins");
+                }
+                else if (pLayer2 is "paper")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine($"paper disproves spock,{this.pLayer2.name} wins");
+                }
+                else if (pLayer2 is "scissors")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine($"spock smashes scissors,{this.pLayer1.name} wins");
+                }
+                else if (pLayer2 is "lizard")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine($"lizard poisions spock,{this.pLayer2.name} wins");
+                }
+                else if (pLayer2 is "spock")
+                {
+                    this.pLayer2.playerScore++;
+                    Console.WriteLine("its a tie");
+                }
+
+            }
+
         }
 
         public void Rungame()
         {
             Greeting();
             SelectGameMode();
-            pLayer1.PickAGesture();
-            pLayer2.PickAGesture();
-
+            while (pLayer1.playerScore < 2 || pLayer2.playerScore < 2)
+            {
+                pLayer1.PickAGesture();
+                pLayer2.PickAGesture();
+                
+            }
+            DisplayWinner();
         }
         public void DisplayWinner()
         {
