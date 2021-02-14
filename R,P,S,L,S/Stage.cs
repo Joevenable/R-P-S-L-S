@@ -253,6 +253,8 @@ namespace R_P_S_L_S
             else if (playAgain == "no")
             {
                 Console.WriteLine("We hate to see you go, come back soon");
+                Console.WriteLine("press any key to exit");
+                Console.ReadKey();
                 return;
             }
             else
