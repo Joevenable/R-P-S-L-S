@@ -10,6 +10,8 @@ namespace R_P_S_L_S
     {
         static void Main(string[] args)
         {
+            Stage stage = new Stage();
+            stage.Rungame();
         }
     }
 }

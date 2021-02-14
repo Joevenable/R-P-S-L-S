@@ -21,7 +21,7 @@ namespace R_P_S_L_S
 
             Gestures rock = new Gestures("rock");
             Gestures paper = new Gestures("paper");
-            Gestures scissors = new Gestures("scossors");
+            Gestures scissors = new Gestures("scissors");
             Gestures lizard = new Gestures("lizard");
             Gestures spock = new Gestures("spock");
 

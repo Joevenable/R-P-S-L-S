@@ -11,6 +11,7 @@ namespace R_P_S_L_S
         PLayer pLayer1;
         PLayer pLayer2;
         string gamemode;
+        string playAgain;
 
         public Stage()
         {
@@ -75,12 +76,12 @@ namespace R_P_S_L_S
                 }
                 else if (pLayer2 is "scissors")
                 {
-                    this.pLayer2.playerScore++;
+                    this.pLayer1.playerScore++;
                     Console.WriteLine($"rock crushes scissors,{this.pLayer1.name} wins");
                 }
                 else if (pLayer2 is "lizard")
                 {
-                    this.pLayer2.playerScore++;
+                    this.pLayer1.playerScore++;
                     Console.WriteLine($"rock crushes lizard,{this.pLayer1.name} wins");
                 }
                 else if (pLayer2 is "spock")
@@ -94,11 +95,11 @@ namespace R_P_S_L_S
             {
                 if (pLayer2 is "rock")
                 {
+                    this.pLayer1.playerScore++;
                     Console.WriteLine($"paper covers rock,{this.pLayer1.name} wins");
                 }
                 else if (pLayer2 is "paper")
                 {
-                    this.pLayer2.playerScore++;
                     Console.WriteLine($"Its a tie");
                 }
                 else if (pLayer2 is "scissors")
@@ -113,7 +114,7 @@ namespace R_P_S_L_S
                 }
                 else if (pLayer2 is "spock")
                 {
-                    this.pLayer2.playerScore++;
+                    this.pLayer1.playerScore++;
                     Console.WriteLine($"paper disproves spock,{this.pLayer1.name} wins");
                 }
 
@@ -121,22 +122,23 @@ namespace R_P_S_L_S
             if (pLayer1 is "scissors")
             {
                 if (pLayer2 is "rock")
-                {
+                {   
+                    this.pLayer2.playerScore++;
                     Console.WriteLine($"rock crushes scissors,{this.pLayer2.name} wins");
                 }
                 else if (pLayer2 is "paper")
                 {
-                    this.pLayer2.playerScore++;
+                    this.pLayer1.playerScore++;
                     Console.WriteLine($"scissors cut paper,{this.pLayer1.name} wins");
                 }
                 else if (pLayer2 is "scissors")
                 {
-                    this.pLayer2.playerScore++;
+                   
                     Console.WriteLine("its a tie");
                 }
                 else if (pLayer2 is "lizard")
                 {
-                    this.pLayer2.playerScore++;
+                    this.pLayer1.playerScore++;
                     Console.WriteLine($"scissors decapitates lizard,{this.pLayer1.name} wins");
                 }
                 else if (pLayer2 is "spock")
@@ -150,11 +152,12 @@ namespace R_P_S_L_S
             {
                 if (pLayer2 is "rock")
                 {
+                    this.pLayer2.playerScore++;
                     Console.WriteLine($"rock crushes lizard,{this.pLayer2.name} wins");
                 }
                 else if (pLayer2 is "paper")
                 {
-                    this.pLayer2.playerScore++;
+                    this.pLayer1.playerScore++;
                     Console.WriteLine($"Lizard eats paper,{this.pLayer1.name} wins");
                 }
                 else if (pLayer2 is "scissors")
@@ -164,13 +167,13 @@ namespace R_P_S_L_S
                 }
                 else if (pLayer2 is "lizard")
                 {
-                    this.pLayer2.playerScore++;
+                    
                     Console.WriteLine("its a tie");
                 }
                 else if (pLayer2 is "spock")
                 {
-                    this.pLayer2.playerScore++;
-                    Console.WriteLine($"lizard poisions spock,{this.pLayer2.name} wins");
+                    this.pLayer1.playerScore++;
+                    Console.WriteLine($"lizard poisions spock,{this.pLayer1.name} wins");
                 }
 
             }
@@ -178,6 +181,7 @@ namespace R_P_S_L_S
             {
                 if (pLayer2 is "rock")
                 {
+                    this.pLayer1.playerScore++;
                     Console.WriteLine($"spock vaporizes rock,{this.pLayer1.name} wins");
                 }
                 else if (pLayer2 is "paper")
@@ -187,7 +191,7 @@ namespace R_P_S_L_S
                 }
                 else if (pLayer2 is "scissors")
                 {
-                    this.pLayer2.playerScore++;
+                    this.pLayer1.playerScore++;
                     Console.WriteLine($"spock smashes scissors,{this.pLayer1.name} wins");
                 }
                 else if (pLayer2 is "lizard")
@@ -197,7 +201,6 @@ namespace R_P_S_L_S
                 }
                 else if (pLayer2 is "spock")
                 {
-                    this.pLayer2.playerScore++;
                     Console.WriteLine("its a tie");
                 }
 
@@ -209,26 +212,54 @@ namespace R_P_S_L_S
         {
             Greeting();
             SelectGameMode();
-            while (pLayer1.playerScore < 2 || pLayer2.playerScore < 2)
+            while (pLayer1.playerScore > 2 || pLayer2.playerScore < 2)
             {
                 pLayer1.PickAGesture();
                 pLayer2.PickAGesture();
+                WhoWon(pLayer1.gesturesChoice, pLayer2.gesturesChoice);
+                DisplayWinner();
                 
             }
-            DisplayWinner();
+           PLayAgain();
+           
         }
         public void DisplayWinner()
         {
             if (this.pLayer1.playerScore == 2)
             {
-                Console.WriteLine("player one wins the game");
+                Console.WriteLine($"{this.pLayer1.name} wins the game");
+                
             }
             else if (this.pLayer2.playerScore == 2)
             {
-                Console.WriteLine("player two wins the game");
+                Console.WriteLine($"{this.pLayer2.name} wins the game");
+               
             }
 
 
+        }
+        public void PLayAgain()
+        {
+            Console.WriteLine("Would you like to play another match? yes or no ");
+            playAgain = Console.ReadLine().ToLower();
+
+
+
+            if (playAgain == "yes")
+            {
+                Console.WriteLine("Alrighty get ready for battle again");
+                Rungame();
+            }
+            else if (playAgain == "no")
+            {
+                Console.WriteLine("We hate to see you go, come back soon");
+                return;
+            }
+            else
+            {
+                Console.WriteLine("Please select again");
+                PLayAgain();
+            }
         }
     }
 }
