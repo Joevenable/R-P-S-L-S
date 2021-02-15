@@ -133,7 +133,6 @@ namespace R_P_S_L_S
                 }
                 else if (pLayer2 is "scissors")
                 {
-                   
                     Console.WriteLine("its a tie");
                 }
                 else if (pLayer2 is "lizard")
@@ -212,7 +211,7 @@ namespace R_P_S_L_S
         {
             Greeting();
             SelectGameMode();
-            while (pLayer1.playerScore < 2 || pLayer2.playerScore < 2)
+            while (pLayer1.playerScore < 2 && pLayer2.playerScore < 2)
             {
                 pLayer1.PickAGesture();
                 pLayer2.PickAGesture();
