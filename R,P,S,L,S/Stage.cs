@@ -212,7 +212,7 @@ namespace R_P_S_L_S
         {
             Greeting();
             SelectGameMode();
-            while (pLayer1.playerScore > 2 || pLayer2.playerScore < 2)
+            while (pLayer1.playerScore < 2 || pLayer2.playerScore < 2)
             {
                 pLayer1.PickAGesture();
                 pLayer2.PickAGesture();
